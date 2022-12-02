@@ -63,10 +63,7 @@ def getFieldMessage(field){
     }
 }
 
-// ========================================================================================================
 def getLogFields(definitionName) {
-    log.info("[\$log] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-
     // Obtém detalhes da definição
     def definitionEncoded = URLEncoder.encode(definitionName, "utf-8").replace("+", "%20")
     def resp = actionPacks.rmRest.get( "recordm/definitions/name/${definitionEncoded}".toString(), [:], "");
@@ -94,6 +91,5 @@ def getLogFields(definitionName) {
         }
     }
     log.info("[\$log] Update 'logFields' for '$definitionName': $auditFields");
-    log.info("[\$log] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     return auditFields
 }
